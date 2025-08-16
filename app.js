@@ -90,3 +90,6 @@ app.post("/create", async (req, res) => {
 app.listen(port, () => {
   console.log(`server is running on http://localhost:${port}`);
 });
+
+
+module.exports = app; // Export the app for testing purposes
