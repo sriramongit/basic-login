@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const path = require("path");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cookieParser());
 
@@ -32,7 +32,7 @@ app.post("/login", async (req, res) => {
     //password decryptiong and authentication
     bcrypt.compare(password, foundUser.password, function (err, result) {
       if (result) { 
-        let token = jwt.sign({ email: foundUser.email }, "secret")
+        let token = jwt.sign({ email: foundUser.email }, process.env.JWT_SECRET)
         res.cookie("token", token)
         res.redirect("/dashboard");
       }else res.send("invalid creds")
@@ -78,7 +78,7 @@ app.post("/create", async (req, res) => {
             email,
             password: hash,
           });
-          let token = jwt.sign({ email }, "secret")
+          let token = jwt.sign({ email }, process.env.JWT_SECRET);
           res.cookie("token", token)
           res.redirect("/");
         });
@@ -87,6 +87,6 @@ app.post("/create", async (req, res) => {
   }
 });
 
-
-
-module.exports = app; // Export the app for testing purposes
+app.listen(port, () => { 
+  console.log(`Server is running on ${port}`);
+})
