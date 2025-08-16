@@ -4,7 +4,6 @@ const userModel = require("./models/users");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const path = require("path");
-const ip = "192.168.108.82";
 
 const app = express();
 const port = 3000;
@@ -88,6 +87,6 @@ app.post("/create", async (req, res) => {
   }
 });
 
-app.listen(port, ip, () => {
-  console.log(`server is running on http://${ip}:${port}`);
+app.listen(port, () => {
+  console.log(`server is running on http://localhost:${port}`);
 });
