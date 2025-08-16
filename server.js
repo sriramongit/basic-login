@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const userModel = require("./models/users");
@@ -27,35 +28,38 @@ app.post("/login", async (req, res) => {
   let foundUser = await userModel.findOne({ email });
 
   if (!foundUser) {
-    res.send(`Error: No user found with this id: ${email} \n\nPlease go to the sign up page`)
-  } else { 
+    res.send(
+      `Error: No user found with this id: ${email} \n\nPlease go to the sign up page`
+    );
+  } else {
     //password decryptiong and authentication
     bcrypt.compare(password, foundUser.password, function (err, result) {
-      if (result) { 
-        let token = jwt.sign({ email: foundUser.email }, process.env.JWT_SECRET)
-        res.cookie("token", token)
+      if (result) {
+        let token = jwt.sign(
+          { email: foundUser.email },
+          process.env.JWT_SECRET
+        );
+        res.cookie("token", token);
         res.redirect("/dashboard");
-      }else res.send("invalid creds")
+      } else res.send("invalid creds");
     });
   }
 });
 
-app.get("/dashboard", (req, res) => { 
-  res.render("dashboard")
-})
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
 
-app.post("/logout", (req, res) => { 
+app.post("/logout", (req, res) => {
   res.cookie("token", "");
   res.redirect("/");
-})
+});
 
 app.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-
 app.post("/create", async (req, res) => {
-
   const { name, email, setPass, confPass } = req.body;
 
   if (!name || !email || !setPass || !confPass) {
@@ -63,7 +67,6 @@ app.post("/create", async (req, res) => {
   } else if (setPass !== confPass) {
     res.send("Error: Set password and confirm password must be same");
   } else {
-
     //creating the user
     let foundUser = await userModel.findOne({ email });
     if (foundUser) {
@@ -79,7 +82,7 @@ app.post("/create", async (req, res) => {
             password: hash,
           });
           let token = jwt.sign({ email }, process.env.JWT_SECRET);
-          res.cookie("token", token)
+          res.cookie("token", token);
           res.redirect("/");
         });
       });
@@ -87,6 +90,6 @@ app.post("/create", async (req, res) => {
   }
 });
 
-app.listen(port, () => { 
+app.listen(port, () => {
   console.log(`Server is running on ${port}`);
-})
+});
