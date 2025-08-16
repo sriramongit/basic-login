@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body, html{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    box-sizing: border-box;
+    background: black;
+    font-family: "Open Sans", sans-serif;
+}
+
+input:focus{
+    outline: 2px solid #919191;
+  box-shadow: 0 4px 16px rgba(79,140,255,0.25);
+}
+
+@media (max-width: 767px){
+    .login-container{
+        width: 85%
+    }
+
+    .signup-container{
+        width: 90%
+    }
+}
+

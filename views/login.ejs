@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+  </head>
+  <body>
+    <form action="/login" method="POST"
+      class=" login-container bg-[rgb(25,25,25)] h-auto w-100 rounded-md mx-auto p-8 text-white border-1 border-white"
+    >
+      <h1 class="text-xl font-bold mb-2">Login to your account</h1>
+      <p class="text-zinc-400 text-sm mb-8">
+        Enter your Email below to login to your account
+      </p>
+      <div class="input w-full flex-col">
+
+        <p class="text-lg mb-1.5">Email</p>
+        <input name="email"
+          class="transition-shadow duration-150 [transition-property:box-shadow,outline] mb-5 placeholder-opacity-100 bg-[rgb(69,69,69)] outline-none text-white py-1.5 px-2 w-full rounded-md"
+          type="email"
+          placeholder="m@example.com"
+        />
+        <div class="flex justify-between items-center">
+          <p class="text-lg mb-1.5">Password</p>
+          <a href="" class="text-sm mb-1.5 cursor-pointer hover:underline"
+            >Forgot your password?</a
+          >
+        </div>
+        <input name="password"
+          class="transition-shadow duration-150 [transition-property:box-shadow,outline] mb-5 placeholder-white placeholder-opacity-100 bg-[rgb(69,69,69)] outline-none text-white py-1.5 px-2 w-full rounded-md mb-8"
+          type="password"
+        />
+        <input type="submit" value="Login"
+          class="w-full bg-white text-black rounded-md py-1 cursor-pointer mb-5 shadow-md hover:shadow-lg active:shadow-inner active:bg-gray-200 active:scale-95 transition-all duration-150 ease-in-out"
+        >
+        </input>
+
+        <div class="flex gap-2 justify-center items-center">
+          <p class="text-sm">Dont have an account?</p>
+          <a href="/signup" class="text-sm cursor-pointer hover:underline">Sign up</a>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
