@@ -23,7 +23,8 @@ app.get("/", (req, res) => {
 
 app.post("/login", async (req, res) => {
   // console.log(req.body);
-  const { email, password } = req.body;
+  const password = req.body.password;
+  const email = req.body.email ? req.body.email.toLowerCase() : "";
 
   let foundUser = await userModel.findOne({ email });
 
@@ -60,7 +61,8 @@ app.get("/signup", (req, res) => {
 });
 
 app.post("/create", async (req, res) => {
-  const { name, email, setPass, confPass } = req.body;
+  const { name, setPass, confPass } = req.body;
+  const email = req.body.email ? req.body.email.toLowerCase() : "";
 
   if (!name || !email || !setPass || !confPass) {
     res.send("Error: all fields are required");
