@@ -42,7 +42,7 @@ app.post("/login", async (req, res) => {
         );
         res.cookie("token", token);
         res.redirect("/dashboard");
-      } else res.send("invalid creds");
+      } else res.status(500).send("invalid credentials entered");
     });
   }
 });
