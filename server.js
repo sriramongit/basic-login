@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.use(cookieParser());
 
@@ -26,6 +26,7 @@ app.post("/login", async (req, res) => {
   const password = req.body.password;
   const email = req.body.email ? req.body.email.toLowerCase() : "";
 
+
   let foundUser = await userModel.findOne({ email });
 
   if (!foundUser) {
@@ -33,13 +34,15 @@ app.post("/login", async (req, res) => {
       `Error: No user found with this id: ${email} \n\nPlease go to the sign up page`
     );
   } else {
-    //password decryptiong and authentication
-    bcrypt.compare(password, foundUser.password, function (err, result) {
+    //password decrypting and authentication
+    bcrypt.compare(password, foundUser.password, async function (err, result) {
       if (result) {
         let token = jwt.sign(
           { email: foundUser.email },
           process.env.JWT_SECRET
         );
+        foundUser.log_sts = true;
+        await foundUser.save();
         res.cookie("token", token);
         res.redirect("/dashboard");
       } else res.status(500).send("invalid credentials entered");
@@ -47,11 +50,17 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/dashboard", (req, res) => {
-  res.render("dashboard");
+app.get("/dashboard", isLoggedIn, (req, res) => {
+  // console.log(req.user.email)
+  res.render("dashboard", { req: req, user: req.user.email });
 });
 
-app.post("/logout", (req, res) => {
+app.post("/logout/:email", async (req, res) => {
+  // console.log(req.params)
+  const email = req.params.email;
+  let user = await userModel.findOne({ email });
+  user.log_sts = false;
+  await user.save();
   res.cookie("token", "");
   res.redirect("/");
 });
@@ -80,6 +89,7 @@ app.post("/create", async (req, res) => {
           // Store hash in your password DB.
           const createdUser = await userModel.create({
             name,
+            log_sts: false,
             email,
             password: hash,
           });
@@ -91,6 +101,18 @@ app.post("/create", async (req, res) => {
     }
   }
 });
+
+//middleware for protected routes
+function isLoggedIn(req, res, next) { 
+  if (!req.cookies.token) { 
+    return res.send("You need to login first");
+  }
+  else { 
+    let data = jwt.verify(req.cookies.token, process.env.JWT_SECRET);
+    req.user = data;
+  }
+  next();
+}
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
