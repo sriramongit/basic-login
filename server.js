@@ -56,7 +56,12 @@ app.get("/profile", isLoggedIn, async (req, res) => {
   res.render("profile", { req: req, user_email: req.user.email, user });
 });
 
-app.post("/logout/:email", async (req, res) => {
+app.get("/userProfile", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ email: req.user.email });
+  res.render("userProfile", { user });
+});
+
+app.get("/logout/:email", async (req, res) => {
   // console.log(req.params)
   const email = req.params.email;
   let user = await userModel.findOne({ email });
@@ -114,6 +119,6 @@ function isLoggedIn(req, res, next) {
   next();
 }
 
-app.listen(port, "192.168.231.82", () => {
+app.listen(port, () => {
   console.log(`Server is running on ${port}`);
 });

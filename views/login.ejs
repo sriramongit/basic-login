@@ -5,20 +5,31 @@
     <title>Login</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <style>
+      html, body {
+        height: 100%;
+        min-height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #000000 0%, #0a1f44 100%);
+      }
+    </style>
   </head>
-  <body>
+  <body class="flex flex-col items-center justify-center min-h-screen">
+    <h2 class="text-3xl font-bold text-white mb-8 mt-4 drop-shadow-lg">Welcome to Hype</h2>
     <form action="/login" method="POST"
-      class=" login-container bg-[rgb(25,25,25)] h-auto w-100 rounded-xl mx-auto p-8 text-white border-1 border-white"
+      class="login-container h-auto w-full max-w-md rounded-xl mx-auto p-8 text-white border border-zinc-900 shadow-lg"
+      style="background: linear-gradient(135deg, #000000 0%, #0a1f44 100%);"
     >
       <h1 class="text-xl font-bold mb-2">Login to your account</h1>
       <p class="text-zinc-400 text-sm mb-8">
         Enter your Email below to login to your account
       </p>
       <div class="input w-full flex-col">
-
         <p class="text-lg mb-1.5">Email</p>
         <input name="email"
-          class="transition-shadow duration-150 [transition-property:box-shadow,outline] mb-5 placeholder-opacity-100 bg-[rgb(69,69,69)] outline-none text-white py-1.5 px-2 w-full rounded-md"
+          class="transition-shadow duration-150 mb-5 placeholder-opacity-100 bg-[rgb(69,69,69)] outline-none text-white py-1.5 px-2 w-full rounded-md"
           type="email"
           placeholder="m@example.com"
         />
@@ -29,16 +40,14 @@
           >
         </div>
         <input name="password"
-          class="transition-shadow duration-150 [transition-property:box-shadow,outline] mb-5 placeholder-white placeholder-opacity-100 bg-[rgb(69,69,69)] outline-none text-white py-1.5 px-2 w-full rounded-md mb-8"
+          class="transition-shadow duration-150 mb-5 placeholder-white placeholder-opacity-100 bg-[rgb(69,69,69)] outline-none text-white py-1.5 px-2 w-full rounded-md mb-8"
           type="password"
         />
-        <input type="submit" class="w-full h-10 cursor-pointer rounded-md mb-5 bg-blue-900 px-3" value="Login"
-          class="w-full bg-white text-black rounded-md py-1 cursor-pointer mb-5 shadow-md hover:shadow-lg active:shadow-inner active:bg-gray-200 active:scale-95 transition-all duration-150 ease-in-out"
-        >
-        </input>
-
+        <input type="submit" value="Login"
+          class="w-full h-10 cursor-pointer rounded-md mb-5 bg-blue-900 px-3 text-white font-semibold shadow-md hover:shadow-lg active:shadow-inner active:bg-blue-800 active:scale-95 transition-all duration-150 ease-in-out"
+        />
         <div class="flex gap-2 justify-center items-center">
-          <p class="text-sm">Dont have an account?</p>
+          <p class="text-sm">Don't have an account?</p>
           <a href="/signup" class="text-sm cursor-pointer hover:underline">Sign up</a>
         </div>
       </div>

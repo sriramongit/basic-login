@@ -5,10 +5,21 @@
     <title>Login</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <style>
+      html, body {
+        height: 100%;
+        min-height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #000000 0%, #0a1f44 100%);
+      }
+    </style>
   </head>
   <body>
     <form action="/create" method="POST"
-      class=" signup-container rounded-xl bg-[rgb(25,25,25)] h-auto w-100 rounded-md mx-auto p-8 text-white border-1 border-white"
+      class="signup-container rounded-xl h-auto w-100 rounded-md mx-auto p-8 text-white border-1 border-zinc-900"
+      style="background: linear-gradient(135deg, #000000 0%, #0a1f44 100%);"
     >
       <h1 class="text-xl font-bold mb-2">Signup</h1>
       <p class="text-zinc-400 text-sm mb-8">
