@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 const path = require("path");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cookieParser());
 
@@ -44,15 +44,17 @@ app.post("/login", async (req, res) => {
         foundUser.log_sts = true;
         await foundUser.save();
         res.cookie("token", token);
-        res.redirect("/dashboard");
+        res.status(200).redirect("/profile");
       } else res.status(500).send("invalid credentials entered");
     });
   }
 });
 
-app.get("/dashboard", isLoggedIn, (req, res) => {
+app.get("/profile", isLoggedIn,async (req, res) => {
   // console.log(req.user.email)
-  res.render("dashboard", { req: req, user: req.user.email });
+  let user = await userModel.findOne({ email: req.user.email })
+  console.log(user);
+  res.render("profile", { req: req, user_email: req.user.email, user });
 });
 
 app.post("/logout/:email", async (req, res) => {
@@ -105,7 +107,7 @@ app.post("/create", async (req, res) => {
 //middleware for protected routes
 function isLoggedIn(req, res, next) { 
   if (!req.cookies.token) { 
-    return res.send("You need to login first");
+    return res.redirect("/");
   }
   else { 
     let data = jwt.verify(req.cookies.token, process.env.JWT_SECRET);
