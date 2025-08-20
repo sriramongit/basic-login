@@ -26,7 +26,6 @@ app.post("/login", async (req, res) => {
   const password = req.body.password;
   const email = req.body.email ? req.body.email.toLowerCase() : "";
 
-
   let foundUser = await userModel.findOne({ email });
 
   if (!foundUser) {
@@ -50,9 +49,9 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/profile", isLoggedIn,async (req, res) => {
+app.get("/profile", isLoggedIn, async (req, res) => {
   // console.log(req.user.email)
-  let user = await userModel.findOne({ email: req.user.email })
+  let user = await userModel.findOne({ email: req.user.email });
   console.log(user);
   res.render("profile", { req: req, user_email: req.user.email, user });
 });
@@ -105,17 +104,16 @@ app.post("/create", async (req, res) => {
 });
 
 //middleware for protected routes
-function isLoggedIn(req, res, next) { 
-  if (!req.cookies.token) { 
+function isLoggedIn(req, res, next) {
+  if (!req.cookies.token) {
     return res.redirect("/");
-  }
-  else { 
+  } else {
     let data = jwt.verify(req.cookies.token, process.env.JWT_SECRET);
     req.user = data;
   }
   next();
 }
 
-app.listen(port, () => {
+app.listen(port, "192.168.231.82", () => {
   console.log(`Server is running on ${port}`);
 });
