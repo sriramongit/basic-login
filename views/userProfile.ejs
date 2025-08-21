@@ -73,70 +73,79 @@
       </div>
     </div>
 
-    <div
-      class="profile  max-w-200 p-5 h-auto flex-col border-none border-white relative justify-center items-center"
-    >
-      <div class="im w-full h-50 mb-20 relative">
-        <img
-          class="cover-img w-full h-full object-cover rounded-xl"
-          src="https://pbs.twimg.com/profile_banners/1914729354883387392/1745591290/1080x360"
-          alt=""
-        />
-        <img
-          class="pfp-img border-5 border-black h-35 w-35 rounded-full absolute"
-          style="bottom: -4rem; left: 1rem"
-          src="https://imgs.search.brave.com/exAv0ZlY9QOXhZ1WYBDY-W0yOiYg78M_XHx-tMaV5b4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2U1Lzll/LzUxL2U1OWU1MWRj/YmJhNDc5ODVhMDEz/NTQ0NzY5MDE1ZjI1/LmpwZw"
-          alt=""
-        />
-      </div>
-      <button class="edit-btn absolute rounded-2xl p-1 h-auto w-25 bg-white text-black border-none font-bold" style="right: 5rem; top: 13rem"
-        ><a href="">Edit Profile</a></button>
-      <div>
-        <div class="flex items-center gap-2">
-          <h3 class="font-bold text-2xl"><%= user.name %></h3>
-          <img class="h-4 w-4 object-cover" src="https://imgs.search.brave.com/-50saQ_7a9I-vK4j_V-5p1DaCCfhml8iIrvH290YfGk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91eHdp/bmcuY29tL3dwLWNv/bnRlbnQvdGhlbWVz/L3V4d2luZy9kb3du/bG9hZC9hcnRzLWdy/YXBoaWMtc2hhcGVz/L3ZlcmlmaWVkLXN5/bWJvbC1pY29uLnBu/Zw" alt="">
-          <!-- <div class="badge flex items-center gap-2">
-            <h4 class="text-sm text-zinc-400">Verified</h4>
+    <div class=" parent bg-[#0a1f44] h-auto w-full">
+      <div
+        class="profile max-w-200 p-5 h-auto flex-col border-none border-white relative justify-center items-center"
+      >
+        <div class="im w-full h-50 mb-20 relative">
+          <img
+            class="cover-img w-full h-full object-cover rounded-xl"
+            src="https://pbs.twimg.com/profile_banners/1914729354883387392/1745591290/1080x360"
+            alt=""
+          />
+          <img
+            class="pfp-img border-5 border-black h-35 w-35 rounded-full absolute"
+            style="bottom: -4rem; left: 1rem"
+            src="https://imgs.search.brave.com/exAv0ZlY9QOXhZ1WYBDY-W0yOiYg78M_XHx-tMaV5b4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2U1Lzll/LzUxL2U1OWU1MWRj/YmJhNDc5ODVhMDEz/NTQ0NzY5MDE1ZjI1/LmpwZw"
+            alt=""
+          />
+        </div>
+        <button class="edit-btn absolute rounded-2xl p-1 h-auto w-25 bg-white text-black border-none font-bold" style="right: 5rem; top: 13rem"
+          ><a href="/editProfile">Edit Profile</a></button>
+        <button class="edit-btn absolute rounded-full p-1 h-7 w-7 bg-white text-black border-none font-bold" style="right: 2rem; top: 13rem"
+          ><a href="/settings">
+            <svg class="h-5 w-5 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#000000" d="M259.1 73.5C262.1 58.7 275.2 48 290.4 48L350.2 48C365.4 48 378.5 58.7 381.5 73.5L396 143.5C410.1 149.5 423.3 157.2 435.3 166.3L503.1 143.8C517.5 139 533.3 145 540.9 158.2L570.8 210C578.4 223.2 575.7 239.8 564.3 249.9L511 297.3C511.9 304.7 512.3 312.3 512.3 320C512.3 327.7 511.8 335.3 511 342.7L564.4 390.2C575.8 400.3 578.4 417 570.9 430.1L541 481.9C533.4 495 517.6 501.1 503.2 496.3L435.4 473.8C423.3 482.9 410.1 490.5 396.1 496.6L381.7 566.5C378.6 581.4 365.5 592 350.4 592L290.6 592C275.4 592 262.3 581.3 259.3 566.5L244.9 496.6C230.8 490.6 217.7 482.9 205.6 473.8L137.5 496.3C123.1 501.1 107.3 495.1 99.7 481.9L69.8 430.1C62.2 416.9 64.9 400.3 76.3 390.2L129.7 342.7C128.8 335.3 128.4 327.7 128.4 320C128.4 312.3 128.9 304.7 129.7 297.3L76.3 249.8C64.9 239.7 62.3 223 69.8 209.9L99.7 158.1C107.3 144.9 123.1 138.9 137.5 143.7L205.3 166.2C217.4 157.1 230.6 149.5 244.6 143.4L259.1 73.5zM320.3 400C364.5 399.8 400.2 363.9 400 319.7C399.8 275.5 363.9 239.8 319.7 240C275.5 240.2 239.8 276.1 240 320.3C240.2 364.5 276.1 400.2 320.3 400z"/></svg>
+          </a></button>
+        
+        
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 class="font-bold text-2xl"><%= user.name %></h3>
             <img class="h-4 w-4 object-cover" src="https://imgs.search.brave.com/-50saQ_7a9I-vK4j_V-5p1DaCCfhml8iIrvH290YfGk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91eHdp/bmcuY29tL3dwLWNv/bnRlbnQvdGhlbWVz/L3V4d2luZy9kb3du/bG9hZC9hcnRzLWdy/YXBoaWMtc2hhcGVz/L3ZlcmlmaWVkLXN5/bWJvbC1pY29uLnBu/Zw" alt="">
-          </div> -->
+            <!-- <div class="badge flex items-center gap-2">
+              <h4 class="text-sm text-zinc-400">Verified</h4>
+              <img class="h-4 w-4 object-cover" src="https://imgs.search.brave.com/-50saQ_7a9I-vK4j_V-5p1DaCCfhml8iIrvH290YfGk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91eHdp/bmcuY29tL3dwLWNv/bnRlbnQvdGhlbWVz/L3V4d2luZy9kb3du/bG9hZC9hcnRzLWdy/YXBoaWMtc2hhcGVz/L3ZlcmlmaWVkLXN5/bWJvbC1pY29uLnBu/Zw" alt="">
+            </div> -->
+          </div>
+          <h5 class="text-sm text-zinc-400 mb-3"><%= user.email %></h5>
         </div>
-        <h5 class="text-sm text-zinc-400 mb-3"><%= user.email %></h5>
-      </div>
-
-      <h4 class="max-w-100 mb-8">Just a tech freak 😇</h4>
-
-      <div class="badges items-center mb-8 w-full h-auto flex">
-        <div class="h-full min-w-50 flex gap-2">
-          <svg
-            class="h-5 w-5"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 640 640"
-          >
-            <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-            <path
-              fill="#ffffff"
-              d="M224 64C241.7 64 256 78.3 256 96L256 128L384 128L384 96C384 78.3 398.3 64 416 64C433.7 64 448 78.3 448 96L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 96C192 78.3 206.3 64 224 64zM160 304L160 336C160 344.8 167.2 352 176 352L208 352C216.8 352 224 344.8 224 336L224 304C224 295.2 216.8 288 208 288L176 288C167.2 288 160 295.2 160 304zM288 304L288 336C288 344.8 295.2 352 304 352L336 352C344.8 352 352 344.8 352 336L352 304C352 295.2 344.8 288 336 288L304 288C295.2 288 288 295.2 288 304zM432 288C423.2 288 416 295.2 416 304L416 336C416 344.8 423.2 352 432 352L464 352C472.8 352 480 344.8 480 336L480 304C480 295.2 472.8 288 464 288L432 288zM160 432L160 464C160 472.8 167.2 480 176 480L208 480C216.8 480 224 472.8 224 464L224 432C224 423.2 216.8 416 208 416L176 416C167.2 416 160 423.2 160 432zM304 416C295.2 416 288 423.2 288 432L288 464C288 472.8 295.2 480 304 480L336 480C344.8 480 352 472.8 352 464L352 432C352 423.2 344.8 416 336 416L304 416zM416 432L416 464C416 472.8 423.2 480 432 480L464 480C472.8 480 480 472.8 480 464L480 432C480 423.2 472.8 416 464 416L432 416C423.2 416 416 423.2 416 432z"
-            />
-          </svg>
-          <p>Joined April 2025</p>
+  
+        <h4 class="max-w-100 mb-8">Just a tech freak 😇</h4>
+  
+        <div class="badges items-center mb-8 w-full h-auto flex">
+          <div class="h-full min-w-50 flex gap-2">
+            <svg
+              class="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+              <path
+                fill="#ffffff"
+                d="M224 64C241.7 64 256 78.3 256 96L256 128L384 128L384 96C384 78.3 398.3 64 416 64C433.7 64 448 78.3 448 96L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 96C192 78.3 206.3 64 224 64zM160 304L160 336C160 344.8 167.2 352 176 352L208 352C216.8 352 224 344.8 224 336L224 304C224 295.2 216.8 288 208 288L176 288C167.2 288 160 295.2 160 304zM288 304L288 336C288 344.8 295.2 352 304 352L336 352C344.8 352 352 344.8 352 336L352 304C352 295.2 344.8 288 336 288L304 288C295.2 288 288 295.2 288 304zM432 288C423.2 288 416 295.2 416 304L416 336C416 344.8 423.2 352 432 352L464 352C472.8 352 480 344.8 480 336L480 304C480 295.2 472.8 288 464 288L432 288zM160 432L160 464C160 472.8 167.2 480 176 480L208 480C216.8 480 224 472.8 224 464L224 432C224 423.2 216.8 416 208 416L176 416C167.2 416 160 423.2 160 432zM304 416C295.2 416 288 423.2 288 432L288 464C288 472.8 295.2 480 304 480L336 480C344.8 480 352 472.8 352 464L352 432C352 423.2 344.8 416 336 416L304 416zM416 432L416 464C416 472.8 423.2 480 432 480L464 480C472.8 480 480 472.8 480 464L480 432C480 423.2 472.8 416 464 416L432 416C423.2 416 416 423.2 416 432z"
+              />
+            </svg>
+            <p>Joined April 2025</p>
+          </div>
         </div>
-      </div>
-
-      <div class="follow flex mb-10 gap-5">
-        <div class="followers flex gap-1">
-          <p class="font-bold">1.8K</p>
-          <p class="text-gray-500">followers</p>
+  
+        <div class="follow flex mb-10 gap-5">
+          <div class="followers flex gap-1">
+            <p class="font-bold">1.8K</p>
+            <p class="text-gray-500">followers</p>
+          </div>
+          <div class="following flex gap-1">
+            <p class="font-bold">20</p>
+            <p class="text-gray-500">following</p>
+          </div>
         </div>
-        <div class="following flex gap-1">
-          <p class="font-bold">20</p>
-          <p class="text-gray-500">following</p>
+  
+        <div class="w-full h-10 flex justify-between">
+          <a class="link w-full text-xl m-0 px-5 py-1 bg-transparent transition-colors duration-150 hover:bg-gray-900 hover:text-white active:bg-gray-700 active:text-white flex items-center justify-center" href="">Posts</a>
+          <a class="link w-full text-xl m-0 px-5 py-1 bg-transparent transition-colors duration-150 hover:bg-gray-900 hover:text-white active:bg-gray-700 active:text-white flex items-center justify-center" href="">Replies</a>
+          <a class="link w-full text-xl m-0 px-5 py-1 bg-transparent transition-colors duration-150 hover:bg-gray-900 hover:text-white active:bg-gray-700 active:text-white flex items-center justify-center" href="">Likes</a>
         </div>
-      </div>
-
-      <div class="w-full h-10 flex justify-between">
-        <a class="link w-full text-xl m-0 px-5 py-1 bg-transparent transition-colors duration-150 hover:bg-gray-900 hover:text-white active:bg-gray-700 active:text-white flex items-center justify-center" href="">Posts</a>
-        <a class="link w-full text-xl m-0 px-5 py-1 bg-transparent transition-colors duration-150 hover:bg-gray-900 hover:text-white active:bg-gray-700 active:text-white flex items-center justify-center" href="">Replies</a>
-        <a class="link w-full text-xl m-0 px-5 py-1 bg-transparent transition-colors duration-150 hover:bg-gray-900 hover:text-white active:bg-gray-700 active:text-white flex items-center justify-center" href="">Likes</a>
+  
       </div>
 
     </div>

@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 const path = require("path");
 
 const app = express();
-const port =process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cookieParser());
 
@@ -83,6 +83,11 @@ app.get("/logout/:email", async (req, res) => {
 
 app.get("/signup", (req, res) => {
   res.render("signup");
+});
+
+app.get("/settings", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ email: req.user.email });
+  res.render("settings", { user });
 });
 
 app.post("/create", async (req, res) => {
