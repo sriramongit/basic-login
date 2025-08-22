@@ -17,8 +17,9 @@
     </style>
   </head>
   <body class="text-white p-3 relative">
+    <!-- navbar -->
     <div class="navbar py-5 px-4 flex justify-between items-center">
-      <h1 class="text-3xl tracking-normal font-bold">Trending on Hype</h1>
+      <h1 class="text-3xl tracking-normal font-bold">Home</h1>
       <!-- <a href="/logout/<%= user.email %>" class="bg-red-500 px-3 py-1 rounded-md">Logout</a> -->
       <div class="flex items-center h-full">
         <a href="">
@@ -94,9 +95,9 @@
       </form>
     </div> -->
 
-    <div class="post-cards flex-col gap-4 h-full mt-4 w-auto">
+    <div class="post-cards bg-[#0a1f44] flex-col gap-4 h-full mt-4 w-auto">
       <div
-        class="card flex-col mb-4 px-5 w-auto p-3 min-h-40 bg-transparent border-b-1 border-b-white border-t-1 border-t-white"
+        class="card flex-col px-5 w-auto p-3 min-h-40 bg-transparent border-b-1 border-b-zinc-500 border-t-1 border-t-zinc-500"
       >
         <div class="flex gap-5">
           <img
@@ -117,48 +118,139 @@
           </div>
         </div>
         <div class="py-5 pb-8">
-          <p>The app will go live soon!</p>
+          <p>Lorem ipsum dolor sit amet!</p>
         </div>
         <div class="flex justify-around w-full h-8">
-          <a href="Like">
-            <svg
-              class="h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 640 640"
-            >
-              <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-              <path
-                fill="#ff0505"
-                d="M442.9 144C415.6 144 389.9 157.1 373.9 179.2L339.5 226.8C335 233 327.8 236.7 320.1 236.7C312.4 236.7 305.2 233 300.7 226.8L266.3 179.2C250.3 157.1 224.6 144 197.3 144C150.3 144 112.2 182.1 112.2 229.1C112.2 279 144.2 327.5 180.3 371.4C221.4 421.4 271.7 465.4 306.2 491.7C309.4 494.1 314.1 495.9 320.2 495.9C326.3 495.9 331 494.1 334.2 491.7C368.7 465.4 419 421.3 460.1 371.4C496.3 327.5 528.2 279 528.2 229.1C528.2 182.1 490.1 144 443.1 144zM335 151.1C360 116.5 400.2 96 442.9 96C516.4 96 576 155.6 576 229.1C576 297.7 533.1 358 496.9 401.9C452.8 455.5 399.6 502 363.1 529.8C350.8 539.2 335.6 543.9 320 543.9C304.4 543.9 289.2 539.2 276.9 529.8C240.4 502 187.2 455.5 143.1 402C106.9 358.1 64 297.7 64 229.1C64 155.6 123.6 96 197.1 96C239.8 96 280 116.5 305 151.1L320 171.8L335 151.1z"
+          <div class="flex-col justify-center items-center">
+            <a href="/like">
+              <svg
+                class="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  fill="#ff0505"
+                  d="M442.9 144C415.6 144 389.9 157.1 373.9 179.2L339.5 226.8C335 233 327.8 236.7 320.1 236.7C312.4 236.7 305.2 233 300.7 226.8L266.3 179.2C250.3 157.1 224.6 144 197.3 144C150.3 144 112.2 182.1 112.2 229.1C112.2 279 144.2 327.5 180.3 371.4C221.4 421.4 271.7 465.4 306.2 491.7C309.4 494.1 314.1 495.9 320.2 495.9C326.3 495.9 331 494.1 334.2 491.7C368.7 465.4 419 421.3 460.1 371.4C496.3 327.5 528.2 279 528.2 229.1C528.2 182.1 490.1 144 443.1 144zM335 151.1C360 116.5 400.2 96 442.9 96C516.4 96 576 155.6 576 229.1C576 297.7 533.1 358 496.9 401.9C452.8 455.5 399.6 502 363.1 529.8C350.8 539.2 335.6 543.9 320 543.9C304.4 543.9 289.2 539.2 276.9 529.8C240.4 502 187.2 455.5 143.1 402C106.9 358.1 64 297.7 64 229.1C64 155.6 123.6 96 197.1 96C239.8 96 280 116.5 305 151.1L320 171.8L335 151.1z"
+                />
+              </svg>
+            </a>
+            <p class="text-xs ml-1">0</p>
+          </div>
+          <div class="flex-col justify-center items-center">
+            <a href="/comments">
+              <svg
+                class="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  fill="#0066ff"
+                  d="M64 304C64 358.4 83.3 408.6 115.9 448.9L67.1 538.3C65.1 542 64 546.2 64 550.5C64 564.6 75.4 576 89.5 576C93.5 576 97.3 575.4 101 573.9L217.4 524C248.8 536.9 283.5 544 320 544C461.4 544 576 436.5 576 304C576 171.5 461.4 64 320 64C178.6 64 64 171.5 64 304zM158 471.9C167.3 454.8 165.4 433.8 153.2 418.7C127.1 386.4 112 346.8 112 304C112 200.8 202.2 112 320 112C437.8 112 528 200.8 528 304C528 407.2 437.8 496 320 496C289.8 496 261.3 490.1 235.7 479.6C223.8 474.7 210.4 474.8 198.6 479.9L140 504.9L158 471.9zM208 336C225.7 336 240 321.7 240 304C240 286.3 225.7 272 208 272C190.3 272 176 286.3 176 304C176 321.7 190.3 336 208 336zM352 304C352 286.3 337.7 272 320 272C302.3 272 288 286.3 288 304C288 321.7 302.3 336 320 336C337.7 336 352 321.7 352 304zM432 336C449.7 336 464 321.7 464 304C464 286.3 449.7 272 432 272C414.3 272 400 286.3 400 304C400 321.7 414.3 336 432 336z"
+                />
+              </svg>
+            </a>
+            <p class="text-xs ml-1">0</p>
+          </div>
+          <div class="flex-col justify-center items-center">
+            <a href="/share">
+              <svg
+                class="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  fill="#0066ff"
+                  d="M268.2 82.4C280.2 87.4 288 99 288 112L288 192L400 192C497.2 192 576 270.8 576 368C576 481.3 494.5 531.9 475.8 542.1C473.3 543.5 470.5 544 467.7 544C456.8 544 448 535.1 448 524.3C448 516.8 452.3 509.9 457.8 504.8C467.2 496 480 478.4 480 448.1C480 395.1 437 352.1 384 352.1L288 352.1L288 432.1C288 445 280.2 456.7 268.2 461.7C256.2 466.7 242.5 463.9 233.3 454.8L73.3 294.8C60.8 282.3 60.8 262 73.3 249.5L233.3 89.5C242.5 80.3 256.2 77.6 268.2 82.6z"
+                />
+              </svg>
+            </a>
+            <p class="text-xs ml-1">0</p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="card flex-col px-5 w-auto p-3 min-h-40 bg-transparent border-b-1 border-b-zinc-500 border-t-1 border-t-zinc-500"
+      >
+        <div class="flex gap-5">
+          <img
+            class="h-10 w-10 rounded-full"
+            src="https://imgs.search.brave.com/exAv0ZlY9QOXhZ1WYBDY-W0yOiYg78M_XHx-tMaV5b4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2U1Lzll/LzUxL2U1OWU1MWRj/YmJhNDc5ODVhMDEz/NTQ0NzY5MDE1ZjI1/LmpwZw"
+            alt=""
+          />
+          <div>
+            <div class="badge flex items-center gap-2">
+              <h3 class="text-md font-bold">Shriramm404</h3>
+              <img
+                class="h-4 w-4 object-cover"
+                src="https://imgs.search.brave.com/-50saQ_7a9I-vK4j_V-5p1DaCCfhml8iIrvH290YfGk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91eHdp/bmcuY29tL3dwLWNv/bnRlbnQvdGhlbWVz/L3V4d2luZy9kb3du/bG9hZC9hcnRzLWdy/YXBoaWMtc2hhcGVz/L3ZlcmlmaWVkLXN5/bWJvbC1pY29uLnBu/Zw"
+                alt=""
               />
-            </svg>
-          </a>
-          <a href="comment">
-            <svg
-              class="h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 640 640"
-            >
-              <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-              <path
-                fill="#0066ff"
-                d="M64 304C64 358.4 83.3 408.6 115.9 448.9L67.1 538.3C65.1 542 64 546.2 64 550.5C64 564.6 75.4 576 89.5 576C93.5 576 97.3 575.4 101 573.9L217.4 524C248.8 536.9 283.5 544 320 544C461.4 544 576 436.5 576 304C576 171.5 461.4 64 320 64C178.6 64 64 171.5 64 304zM158 471.9C167.3 454.8 165.4 433.8 153.2 418.7C127.1 386.4 112 346.8 112 304C112 200.8 202.2 112 320 112C437.8 112 528 200.8 528 304C528 407.2 437.8 496 320 496C289.8 496 261.3 490.1 235.7 479.6C223.8 474.7 210.4 474.8 198.6 479.9L140 504.9L158 471.9zM208 336C225.7 336 240 321.7 240 304C240 286.3 225.7 272 208 272C190.3 272 176 286.3 176 304C176 321.7 190.3 336 208 336zM352 304C352 286.3 337.7 272 320 272C302.3 272 288 286.3 288 304C288 321.7 302.3 336 320 336C337.7 336 352 321.7 352 304zM432 336C449.7 336 464 321.7 464 304C464 286.3 449.7 272 432 272C414.3 272 400 286.3 400 304C400 321.7 414.3 336 432 336z"
-              />
-            </svg>
-          </a>
-          <a href="Share">
-            <svg
-              class="h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 640 640"
-            >
-              <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-              <path
-                fill="#0066ff"
-                d="M268.2 82.4C280.2 87.4 288 99 288 112L288 192L400 192C497.2 192 576 270.8 576 368C576 481.3 494.5 531.9 475.8 542.1C473.3 543.5 470.5 544 467.7 544C456.8 544 448 535.1 448 524.3C448 516.8 452.3 509.9 457.8 504.8C467.2 496 480 478.4 480 448.1C480 395.1 437 352.1 384 352.1L288 352.1L288 432.1C288 445 280.2 456.7 268.2 461.7C256.2 466.7 242.5 463.9 233.3 454.8L73.3 294.8C60.8 282.3 60.8 262 73.3 249.5L233.3 89.5C242.5 80.3 256.2 77.6 268.2 82.6z"
-              />
-            </svg>
-          </a>
+            </div>
+            <h4 class="text-sm text-zinc-400">sriramsahu187@gmail.com</h4>
+          </div>
+        </div>
+        <div class="py-5 pb-8">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid
+            suscipit eligendi cupiditate? Suscipit voluptatibus a nobis
+            obcaecati vitae exercitationem facere deserunt atque nam labore
+            inventore incidunt officia nostrum eaque velit fugiat similique
+            fugit repudiandae, doloremque quasi neque quae ipsum! Ullam sequi
+            iure nesciunt praesentium? Sed facere officiis quidem eligendi odit.
+          </p>
+        </div>
+        <div class="flex justify-around w-full h-8">
+          <div class="flex-col justify-center items-center">
+            <a href="/like">
+              <svg
+                class="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  fill="#ff0505"
+                  d="M442.9 144C415.6 144 389.9 157.1 373.9 179.2L339.5 226.8C335 233 327.8 236.7 320.1 236.7C312.4 236.7 305.2 233 300.7 226.8L266.3 179.2C250.3 157.1 224.6 144 197.3 144C150.3 144 112.2 182.1 112.2 229.1C112.2 279 144.2 327.5 180.3 371.4C221.4 421.4 271.7 465.4 306.2 491.7C309.4 494.1 314.1 495.9 320.2 495.9C326.3 495.9 331 494.1 334.2 491.7C368.7 465.4 419 421.3 460.1 371.4C496.3 327.5 528.2 279 528.2 229.1C528.2 182.1 490.1 144 443.1 144zM335 151.1C360 116.5 400.2 96 442.9 96C516.4 96 576 155.6 576 229.1C576 297.7 533.1 358 496.9 401.9C452.8 455.5 399.6 502 363.1 529.8C350.8 539.2 335.6 543.9 320 543.9C304.4 543.9 289.2 539.2 276.9 529.8C240.4 502 187.2 455.5 143.1 402C106.9 358.1 64 297.7 64 229.1C64 155.6 123.6 96 197.1 96C239.8 96 280 116.5 305 151.1L320 171.8L335 151.1z"
+                />
+              </svg>
+            </a>
+            <p class="text-xs ml-1">0</p>
+          </div>
+          <div class="flex-col justify-center items-center">
+            <a href="/comments">
+              <svg
+                class="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  fill="#0066ff"
+                  d="M64 304C64 358.4 83.3 408.6 115.9 448.9L67.1 538.3C65.1 542 64 546.2 64 550.5C64 564.6 75.4 576 89.5 576C93.5 576 97.3 575.4 101 573.9L217.4 524C248.8 536.9 283.5 544 320 544C461.4 544 576 436.5 576 304C576 171.5 461.4 64 320 64C178.6 64 64 171.5 64 304zM158 471.9C167.3 454.8 165.4 433.8 153.2 418.7C127.1 386.4 112 346.8 112 304C112 200.8 202.2 112 320 112C437.8 112 528 200.8 528 304C528 407.2 437.8 496 320 496C289.8 496 261.3 490.1 235.7 479.6C223.8 474.7 210.4 474.8 198.6 479.9L140 504.9L158 471.9zM208 336C225.7 336 240 321.7 240 304C240 286.3 225.7 272 208 272C190.3 272 176 286.3 176 304C176 321.7 190.3 336 208 336zM352 304C352 286.3 337.7 272 320 272C302.3 272 288 286.3 288 304C288 321.7 302.3 336 320 336C337.7 336 352 321.7 352 304zM432 336C449.7 336 464 321.7 464 304C464 286.3 449.7 272 432 272C414.3 272 400 286.3 400 304C400 321.7 414.3 336 432 336z"
+                />
+              </svg>
+            </a>
+            <p class="text-xs ml-1">0</p>
+          </div>
+          <div class="flex-col justify-center items-center">
+            <a href="/share">
+              <svg
+                class="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  fill="#0066ff"
+                  d="M268.2 82.4C280.2 87.4 288 99 288 112L288 192L400 192C497.2 192 576 270.8 576 368C576 481.3 494.5 531.9 475.8 542.1C473.3 543.5 470.5 544 467.7 544C456.8 544 448 535.1 448 524.3C448 516.8 452.3 509.9 457.8 504.8C467.2 496 480 478.4 480 448.1C480 395.1 437 352.1 384 352.1L288 352.1L288 432.1C288 445 280.2 456.7 268.2 461.7C256.2 466.7 242.5 463.9 233.3 454.8L73.3 294.8C60.8 282.3 60.8 262 73.3 249.5L233.3 89.5C242.5 80.3 256.2 77.6 268.2 82.6z"
+                />
+              </svg>
+            </a>
+            <p class="text-xs ml-1">0</p>
+          </div>
         </div>
       </div>
     </div>

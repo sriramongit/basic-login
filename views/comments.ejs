@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"></script>
     <style>
-      html, body {
+     body {
         height: 100%;
         min-height: 100vh;
         width: 100%;
@@ -18,7 +18,7 @@
   <body class="text-white p-3 relative">
     <div class="navbar py-5 px-4 flex justify-between items-center">
       <h1 class="text-3xl tracking-normal font-bold">
-        Create Post
+        Comments
       </h1>
       <!-- <a href="/logout/<%= user.email %>" class="bg-red-500 px-3 py-1 rounded-md">Logout</a> -->
       <div class="flex items-center h-full">
@@ -72,17 +72,68 @@
         </a>
       </div>
     </div>
-    <div class="content-posting w-full h-auto mt-10 px-4">
+<!-- h-100 min-h-full -->
+    <div class="comment-card-holder absolute w-205 h-100 mt-3" style="top: 7rem;">
+      <div
+        class="post-card bg-black flex-col px-5 w-auto p-3 min-h-full border-b-1 border-b-zinc-500 border-t-1 border-t-zinc-500"
+      >
+        <div class="flex gap-5">
+          <img
+            class="h-10 w-10 rounded-full"
+            src="https://imgs.search.brave.com/exAv0ZlY9QOXhZ1WYBDY-W0yOiYg78M_XHx-tMaV5b4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2U1Lzll/LzUxL2U1OWU1MWRj/YmJhNDc5ODVhMDEz/NTQ0NzY5MDE1ZjI1/LmpwZw"
+            alt=""
+          />
+          <div>
+            <div class="badge flex items-center gap-2">
+              <h3 class="text-md font-bold">Shriramm404</h3>
+              <img
+                class="h-4 w-4 object-cover"
+                src="https://imgs.search.brave.com/-50saQ_7a9I-vK4j_V-5p1DaCCfhml8iIrvH290YfGk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91eHdp/bmcuY29tL3dwLWNv/bnRlbnQvdGhlbWVz/L3V4d2luZy9kb3du/bG9hZC9hcnRzLWdy/YXBoaWMtc2hhcGVz/L3ZlcmlmaWVkLXN5/bWJvbC1pY29uLnBu/Zw"
+                alt=""
+              />
+            </div>
+            <h4 class="text-sm text-zinc-400">sriramsahu187@gmail.com</h4>
+          </div>
+        </div>
+        <div class="py-5">
+          <p>Lorem ipsum dolor sit amet!</p>
+        </div>
+        <!-- like shares and comments goes here -->
+      </div>
+      <div
+    class="comments-list w-auto max-h-[900px] overflow-y-auto mt-2 bg-[#0a1f44] rounded-md p-3"
+    style="position: relative;"
+  >
+    <!-- Example comment -->
+    <div class="comment-card w-full bg-[#004E9Bcc] p-3 rounded-md mb-3">
+      <div class="flex gap-3 items-center mb-2">
+        <img
+          class="h-8 w-8 rounded-full"
+          src="https://imgs.search.brave.com/exAv0ZlY9QOXhZ1WYBDY-W0yOiYg78M_XHx-tMaV5b4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2U1Lzll/LzUxL2U1OWU1MWRj/YmJhNDc5ODVhMDEz/NTQ0NzY5MDE1ZjI1/LmpwZw"
+          alt=""
+        />
+        <div>
+          <h3 class="font-bold">User123</h3>
+          <span class="text-sm text-zinc-400">2 hours ago</span>
+        </div>
+      </div>
+      <p>This is a sample comment to demonstrate the layout.</p>
+    </div>
+    <!-- Add more comments as needed -->
+  </div>
+    </div>
+
+    <div class="comment-posting fixed w-full mt-10 px-4" style="bottom: 2rem;">
       <form action="">
-        <div class="post-container bg-[#004E9B9A] max-w-200 h-150 p-3 border-none rounded-md relative">
+        <div class="comment-container bg-[#004E9B] max-w-200 min-h-60 max-h-auto p-3 border-none rounded-md relative">
             <div class="flex mb-8 items-center gap-4 h-auto w-auto">
                 <img class="h-6 w-6 rounded-full object-cover" src="https://imgs.search.brave.com/exAv0ZlY9QOXhZ1WYBDY-W0yOiYg78M_XHx-tMaV5b4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2U1Lzll/LzUxL2U1OWU1MWRj/YmJhNDc5ODVhMDEz/NTQ0NzY5MDE1ZjI1/LmpwZw" alt="">
-                <h2 class="font-bold">Posting as <%= user.name.charAt(0).toUpperCase() + user.name.slice(1) %></h2>
+                <h2 class="font-bold">Commenting as <%= user.name.charAt(0).toUpperCase() + user.name.slice(1) %></h2>
             </div>
           <textarea
-            class=" pt-2 resize-none h-130 w-full outline-none text-xl bg-transparent "
+            class=" resize-none h-25 w-full outline-none text-xl "
             name=""
-            placeholder="What's on your mind <%= user.name.charAt(0).toUpperCase() + user.name.slice(1) %>?"
+            placeholder="What are your thoughts on this Hype?"
           ></textarea>
           <div class="absolute bottom-5 right-3 left-3 flex justify-between items-center">
             <svg class="w-7 h-7 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96zM224 176C250.5 176 272 197.5 272 224C272 250.5 250.5 272 224 272C197.5 272 176 250.5 176 224C176 197.5 197.5 176 224 176zM368 288C376.4 288 384.1 292.4 388.5 299.5L476.5 443.5C481 450.9 481.2 460.2 477 467.8C472.8 475.4 464.7 480 456 480L184 480C175.1 480 166.8 475 162.7 467.1C158.6 459.2 159.2 449.6 164.3 442.3L220.3 362.3C224.8 355.9 232.1 352.1 240 352.1C247.9 352.1 255.2 355.9 259.7 362.3L286.1 400.1L347.5 299.6C351.9 292.5 359.6 288.1 368 288.1z"/></svg>

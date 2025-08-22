@@ -71,6 +71,11 @@ app.get("/createPost", isLoggedIn, async (req, res) => {
   res.render("createPost", { user });
 });
 
+app.get("/comments", isLoggedIn, async (req, res) => { 
+  let user = await userModel.findOne({ email: req.user.email });
+  res.render("comments", { user });
+})
+
 app.get("/logout/:email", async (req, res) => {
   // console.log(req.params)
   const email = req.params.email;
