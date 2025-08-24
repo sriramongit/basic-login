@@ -8,9 +8,9 @@ const jwt = require("jsonwebtoken");
 const path = require("path");
 
 const app = express();
-// const port = process.env.PORT || 3000;
-const port = 3000;
-const ip = "192.168.5.82";
+const port = process.env.PORT || 3000;
+// const port = 3000;
+// const ip = "192.168.5.82";
 
 app.use(cookieParser());
 
@@ -117,9 +117,9 @@ app.get("/settings", isLoggedIn, async (req, res) => {
 
 app.get("/profile", isLoggedIn, async (req, res) => {
   // console.log(req.user.email)
-  let user = await userModel.findOne({ email: req.user.email }).populate("posts");
-  console.log(user.posts);
-  res.render("profile", { req: req, user_email: req.user.email, user });
+  let users = await userModel.find({}).populate("posts");
+  console.log(users);
+  res.render("profile", { req: req, user_email: req.user.email, users });
 });
 
 app.get("/userProfile", isLoggedIn, async (req, res) => {
@@ -156,6 +156,6 @@ app.get("/comments", isLoggedIn, async (req, res) => {
 });
 
 //server connection
-app.listen(port, ip, () => {
+app.listen(port, () => {
   console.log(`Server is running on ${port}`);
 });
