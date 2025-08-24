@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   log_sts: Boolean,
   email: String,
   password: String,
+  posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }]
 });
 
 module.exports = mongoose.model("User", userSchema);

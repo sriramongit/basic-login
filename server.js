@@ -2,12 +2,15 @@ require("dotenv").config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const userModel = require("./models/users");
+const postModel = require("./models/posts");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
+const port = 3000;
+const ip = "192.168.5.82";
 
 app.use(cookieParser());
 
@@ -49,33 +52,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/profile", isLoggedIn, async (req, res) => {
-  // console.log(req.user.email)
-  let user = await userModel.findOne({ email: req.user.email });
-  console.log(user);
-  res.render("profile", { req: req, user_email: req.user.email, user });
-});
-
-app.get("/userProfile", isLoggedIn, async (req, res) => {
-  let user = await userModel.findOne({ email: req.user.email });
-  res.render("userProfile", { user });
-});
-
-app.get("/notifications", isLoggedIn, async (req, res) => {
-  let user = await userModel.findOne({ email: req.user.email });
-  res.render("notifications", { user });
-});
-
-app.get("/createPost", isLoggedIn, async (req, res) => {
-  let user = await userModel.findOne({ email: req.user.email });
-  res.render("createPost", { user });
-});
-
-app.get("/comments", isLoggedIn, async (req, res) => { 
-  let user = await userModel.findOne({ email: req.user.email });
-  res.render("comments", { user });
-})
-
 app.get("/logout/:email", async (req, res) => {
   // console.log(req.params)
   const email = req.params.email;
@@ -88,11 +64,6 @@ app.get("/logout/:email", async (req, res) => {
 
 app.get("/signup", (req, res) => {
   res.render("signup");
-});
-
-app.get("/settings", isLoggedIn, async (req, res) => {
-  let user = await userModel.findOne({ email: req.user.email });
-  res.render("settings", { user });
 });
 
 app.post("/create", async (req, res) => {
@@ -139,6 +110,52 @@ function isLoggedIn(req, res, next) {
   next();
 }
 
-app.listen(port, () => {
+app.get("/settings", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ email: req.user.email });
+  res.render("settings", { user });
+});
+
+app.get("/profile", isLoggedIn, async (req, res) => {
+  // console.log(req.user.email)
+  let user = await userModel.findOne({ email: req.user.email }).populate("posts");
+  console.log(user.posts);
+  res.render("profile", { req: req, user_email: req.user.email, user });
+});
+
+app.get("/userProfile", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ email: req.user.email });
+  res.render("userProfile", { user });
+});
+
+app.get("/notifications", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ email: req.user.email });
+  res.render("notifications", { user });
+});
+
+app.get("/createPost", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ email: req.user.email });
+  res.render("createPost", { user });
+});
+
+app.post("/post", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ email: req.user.email });
+  let { content } = req.body;
+  let post = await postModel.create({
+    user: user._id,
+    content,
+  });
+
+  user.posts.push(post._id);
+  await user.save();
+  res.redirect("/profile");
+});
+
+app.get("/comments", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ email: req.user.email });
+  res.render("comments", { user });
+});
+
+//server connection
+app.listen(port, ip, () => {
   console.log(`Server is running on ${port}`);
 });
