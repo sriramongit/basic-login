@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.use(cookieParser());
 
@@ -119,6 +119,21 @@ app.get("/profile", isLoggedIn, async (req, res) => {
   console.log(users);
   res.render("profile", { req: req, user_email: req.user.email, users });
 });
+
+app.get("/like/:id", isLoggedIn, async (req, res) => {
+  let post = await postModel.findOne({ _id: req.params.id }).populate("user");
+
+  let user = await userModel.findOne({ email: req.user.email });
+  if (post.likes.indexOf(user._id) === -1) {
+    post.likes.push(user._id);
+  } else {
+    post.likes.splice(post.likes.indexOf(user._id), 1);
+  }
+
+  await post.save();
+  res.redirect("/profile");
+});
+
 
 app.get("/userProfile", isLoggedIn, async (req, res) => {
   let user = await userModel.findOne({ email: req.user.email });
